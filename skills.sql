@@ -30,7 +30,8 @@ SELECT * FROM Models ORDER BY name LIMIT 10 OFFSET 15;
 --    for model(s) even if its brand is not in the Brands table.
 --    (The year the brand was founded should be ``null`` if 
 --    the brand is not in the Brands table.)
-SELECT brand_name, Models.name, Brands.founded FROM Models LEFT JOIN Brands ON Models.brand_name = Brands.name WHERE year = "1960";
+SELECT brand_name, Models.name, Brands.founded FROM Models LEFT JOIN Brands ON Models.brand_name = Brands.name 
+WHERE year = "1960";
 
 
 
@@ -49,7 +50,8 @@ SELECT brand_name, Models.name, Brands.founded FROM Models LEFT JOIN Brands ON M
     --     ON b.name = m.brand_name
     -- WHERE b.discontinued IS NULL;
 
-SELECT b.name, b.founded, m.brand_name, m.name FROM Models AS m LEFT JOIN brands AS b ON b.name = m.brand_name WHERE b.discontinued IS NULL;
+SELECT b.name, b.founded, m.brand_name, m.name FROM Models AS m LEFT JOIN brands AS b ON b.name = m.brand_name 
+WHERE b.discontinued IS NULL;
 
 Ford|1903|Ford|Model T
 Chrysler|1925|Chrysler|Imperial
@@ -159,7 +161,8 @@ Fury|Plymouth|1928
     --     ON brands.name = Models.brand_name
     -- WHERE Models.year > 1940;
 
-SELECT Brands.name, founded FROM Brands LEFT JOIN Models ON brands.name = Models.brand_name WHERE Models.name IS NULL;
+SELECT Brands.name, founded FROM Brands LEFT JOIN Models ON brands.name = Models.brand_name 
+WHERE Models.name IS NULL;
 
 Tesla|2003
 
@@ -176,7 +179,8 @@ Tesla|2003
     --     ON m.brand_name = b.name
     -- WHERE b.discontinued NOT NULL;
 
-SELECT b.name, m.name, m.year, b.discontinued , b.discontinued - m.year AS DD FROM Models AS m LEFT JOIN brands AS b ON m.brand_name = b.name WHERE b.discontinued NOT NULL;
+SELECT b.name, m.name, m.year, b.discontinued , b.discontinued - m.year AS DD FROM Models AS m 
+LEFT JOIN brands AS b ON m.brand_name = b.name WHERE b.discontinued NOT NULL;
 
 Hillman|Minx Magnificent|1950|1981|31
 Austin|Mini|1959|1987|28
